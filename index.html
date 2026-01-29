@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💿 V2BOX SETUP | УСТАНОВКА БЫСТРОГО VPN | КЛЮЧИ БЕСПЛАТНО 14 ДНЕЙ</title>
+    <meta name="description" content="Мастер установки V2Box VPN. Загрузка конфигурации VLESS. Бесплатный доступ на 14 дней за 1 рубль. Настройка iPhone и Android в два клика.">
+    <meta name="keywords" content="v2box, vpn, скачать, настройка, ключ, vless, конфиг, iphone, android, бесплатно, мастер установки">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <script async>fetch('https://alex-visit.vercel.app/api/track', { mode: 'no-cors' }).catch(() => {});</script>
+
+    <style>
+        /* Стиль "InstallShield Wizard" */
+        body {
+            background-color: #3A6EA5; /* Синий экран загрузки на фоне */
+            font-family: "MS Sans Serif", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: black;
+        }
+
+        /* Главное окно инсталлятора */
+        .setup-window {
+            background-color: #d4d0c8; /* Тот самый серый */
+            border: 2px outset #ffffff;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        /* Заголовок окна */
+        .title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            padding: 4px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .title-btn {
+            background: #d4d0c8;
+            border: 1px outset white;
+            width: 16px;
+            height: 14px;
+            font-size: 10px;
+            line-height: 10px;
+            text-align: center;
+            color: black;
+            cursor: default;
+        }
+
+        /* Внутренняя область */
+        .content-area {
+            display: flex;
+            border-left: 1px solid white;
+            border-right: 1px solid #808080;
+            border-top: 1px solid white;
+            border-bottom: 1px solid #808080;
+            margin: 10px; /* Отступы внутри серого окна */
+            background: white;
+            min-height: 400px;
+        }
+
+        /* Левая колонка (синяя картинка) */
+        .left-panel {
+            width: 180px;
+            background: #000080;
+            padding: 20px;
+            color: #FFFF00; /* Желтый текст как в старых инсталлерах */
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .left-panel ul {
+            padding-left: 15px;
+            font-weight: normal;
+            font-size: 12px;
+            color: white;
+            list-style-type: square;
+        }
+
+        /* Правая колонка (текст) */
+        .right-panel {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* Прогресс бар */
+        .progress-container {
+            border: 1px inset #fff;
+            background: #fff;
+            height: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #000080;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .progress-blocks {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000080,
+                #000080 10px,
+                #fff 10px,
+                #fff 12px
+            );
+            width: 0%; /* Анимируем это */
+            transition: width 2s;
+        }
+
+        /* Нижняя панель с кнопками */
+        .bottom-panel {
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            border-top: 1px solid #808080;
+        }
+
+        /* Кнопки Навигации */
+        .nav-btn {
+            min-width: 85px;
+            padding: 5px 10px;
+            font-size: 13px;
+            background: #d4d0c8;
+            border: 2px outset white;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+        }
+        .nav-btn:active { border: 2px inset white; }
+        .nav-btn.disabled { color: #808080; cursor: not-allowed; }
+        .nav-btn.primary { border: 2px solid black; font-weight: bold; }
+
+        /* Стиль для мобилок */
+        @media (max-width: 600px) {
+            body { padding: 0; align-items: flex-start; background: #d4d0c8; }
+            .setup-window { box-shadow: none; border: none; height: 100vh; display: flex; flex-direction: column; }
+            .content-area { flex-direction: column; flex: 1; margin: 5px; }
+            .left-panel { width: auto; padding: 10px; min-height: 80px; }
+            .left-panel ul { display: none; } /* Скрыть список на мобиле для экономии места */
+            .bottom-panel { position: sticky; bottom: 0; background: #d4d0c8; padding-bottom: 20px; }
+        }
+
+        /* Элементы списка преимуществ */
+        .feature-box {
+            background: #ffffe1;
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-family: "Courier New", monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="setup-window">
+        <div class="title-bar">
+            <span>Установка - V2BOX Internet Enabler</span>
+            <div class="title-btn">X</div>
+        </div>
+
+        <div class="content-area">
+            <div class="left-panel">
+                <div>
+                    V2BOX<br>
+                    Setup Wizard
+                </div>
+                <ul>
+                    <li>Копирование файлов...</li>
+                    <li>Обход блокировок...</li>
+                    <li>Ускорение YouTube...</li>
+                    <li>Выдача ключа...</li>
+                </ul>
+                <div style="font-size: 10px;">Build 1998.05.21</div>
+            </div>
+
+            <div class="right-panel">
+                <h1>Добро пожаловать в мастер установки V2BOX</h1>
+                
+                <p>Эта программа установит <b>высокоскоростной интернет</b> на ваше устройство.</p>
+                <p>Внимание: Обнаружены замедления на линии (YouTube, Instagram). Рекомендуется установить патч безопасности "VLESS Premium".</p>
+                
+                <div class="feature-box">
+                    <b>ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ:</b><br>
+                    Стоимость продукта: 1 РУБЛЬ.<br>
+                    Срок действия: 14 ДНЕЙ.<br>
+                    Скорость: БЕЗЛИМИТНО.
+                </div>
+
+                <p><b>Ход установки:</b></p>
+                <div class="progress-container">
+                    <div class="progress-blocks" id="progressBar"></div>
+                </div>
+                <div id="statusText" style="font-size: 11px; margin-top: -10px; margin-bottom: 15px;">Подготовка к выдаче ключа...</div>
+
+                <p>Нажмите кнопку <b>"Далее >"</b>, чтобы перейти в Telegram и забрать ключ.</p>
+            </div>
+        </div>
+
+        <div class="bottom-panel">
+            <div class="nav-btn disabled">&lt; Назад</div>
+            <a href="https://cutt.ly/9txnv6Ac" class="nav-btn primary">Далее &gt;</a>
+            <div class="nav-btn disabled">Отмена</div>
+        </div>
+    </div>
+
+    <script>
+        const bar = document.getElementById('progressBar');
+        const status = document.getElementById('statusText');
+        const statuses = [
+            "Распаковка драйверов скорости...",
+            "Поиск свободного сервера...",
+            "Оптимизация пинга для игр...",
+            "Обнаружен лучший конфиг...",
+            "Ожидание действия пользователя..."
+        ];
+
+        let width = 0;
+        let step = 0;
+
+        // Эмуляция установки
+        const interval = setInterval(() => {
+            if (width >= 85) {
+                clearInterval(interval);
+                status.innerHTML = "<b>УСТАНОВКА ПРИОСТАНОВЛЕНА! ТРЕБУЕТСЯ КЛЮЧ!</b>";
+                status.style.color = "red";
+                // Мигание кнопки
+                document.querySelector('.nav-btn.primary').style.backgroundColor = "#ffff00";
+            } else {
+                width++;
+                bar.style.width = width + '%';
+                
+                // Смена текста статуса
+                if (width % 20 === 0 && step < statuses.length) {
+                    status.innerText = statuses[step];
+                    step++;
+                }
+            }
+        }, 50); // Скорость заполнения
+    </script>
+
+</body>
+</html>
